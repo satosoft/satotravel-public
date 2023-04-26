@@ -1,0 +1,695 @@
+
+  GET|HEAD  / ............................................................................................ HomeController@index
+  POST      _ignition/execute-solution .......... ignition.executeSolution › Spatie\LaravelIgnition › ExecuteSolutionController
+  GET|HEAD  _ignition/health-check ...................... ignition.healthCheck › Spatie\LaravelIgnition › HealthCheckController
+  POST      _ignition/update-config ................... ignition.updateConfig › Spatie\LaravelIgnition › UpdateConfigController
+  GET|HEAD  admin ............................................. admin.index › Modules\Dashboard\Admin\DashboardController@index
+  POST      admin/media/folder .......................... media.folder.index › Modules\Media\Controllers\FolderController@index
+  GET|HEAD  admin/module/boat ...................................... boat.admin.index › Modules\Boat\Admin\BoatController@index
+  GET|HEAD  admin/module/boat/attribute ............. boat.admin.attribute.index › Modules\Boat\Admin\AttributeController@index
+  GET|HEAD  admin/module/boat/attribute/edit/{id} ..... boat.admin.attribute.edit › Modules\Boat\Admin\AttributeController@edit
+  POST      admin/module/boat/attribute/editAttrBulk boat.admin.attribute.editAttrBulk › Modules\Boat\Admin\AttributeControlle…
+  POST      admin/module/boat/attribute/editTermBulk boat.admin.attribute.term.editTermBulk › Modules\Boat\Admin\AttributeCont…
+  GET|HEAD  admin/module/boat/attribute/getForSelect2 boat.admin.attribute.term.getForSelect2 › Modules\Boat\Admin\AttributeCo…
+  POST      admin/module/boat/attribute/store/{id} .. boat.admin.attribute.store › Modules\Boat\Admin\AttributeController@store
+  GET|HEAD  admin/module/boat/attribute/term_edit/{id} boat.admin.attribute.term.edit › Modules\Boat\Admin\AttributeController…
+  POST      admin/module/boat/attribute/term_store boat.admin.attribute.term.store › Modules\Boat\Admin\AttributeController@te…
+  GET|HEAD  admin/module/boat/attribute/terms/{id} boat.admin.attribute.term.index › Modules\Boat\Admin\AttributeController@te…
+  GET|HEAD  admin/module/boat/availability .... boat.admin.availability.index › Modules\Boat\Admin\AvailabilityController@index
+  GET|HEAD  admin/module/boat/availability/loadDates boat.admin.availability.loadDates › Modules\Boat\Admin\AvailabilityContro…
+  POST      admin/module/boat/availability/store boat.admin.availability.store › Modules\Boat\Admin\AvailabilityController@sto…
+  POST      admin/module/boat/bulkEdit ....................... boat.admin.bulkEdit › Modules\Boat\Admin\BoatController@bulkEdit
+  GET|HEAD  admin/module/boat/create ............................. boat.admin.create › Modules\Boat\Admin\BoatController@create
+  GET|HEAD  admin/module/boat/edit/{id} .............................. boat.admin.edit › Modules\Boat\Admin\BoatController@edit
+  GET|HEAD  admin/module/boat/getForSelect2 ........ boat.admin.getForSelect2 › Modules\Boat\Admin\BoatController@getForSelect2
+  GET|HEAD  admin/module/boat/recovery ....................... boat.admin.recovery › Modules\Boat\Admin\BoatController@recovery
+  POST      admin/module/boat/store/{id} ........................... boat.admin.store › Modules\Boat\Admin\BoatController@store
+  GET|HEAD  admin/module/car .......................................... car.admin.index › Modules\Car\Admin\CarController@index
+  GET|HEAD  admin/module/car/attribute ................ car.admin.attribute.index › Modules\Car\Admin\AttributeController@index
+  GET|HEAD  admin/module/car/attribute/edit/{id} ........ car.admin.attribute.edit › Modules\Car\Admin\AttributeController@edit
+  POST      admin/module/car/attribute/editAttrBulk car.admin.attribute.editAttrBulk › Modules\Car\Admin\AttributeController@e…
+  POST      admin/module/car/attribute/editTermBulk car.admin.attribute.term.editTermBulk › Modules\Car\Admin\AttributeControl…
+  GET|HEAD  admin/module/car/attribute/getForSelect2 car.admin.attribute.term.getForSelect2 › Modules\Car\Admin\AttributeContr…
+  POST      admin/module/car/attribute/store/{id} ..... car.admin.attribute.store › Modules\Car\Admin\AttributeController@store
+  GET|HEAD  admin/module/car/attribute/term_edit/{id} car.admin.attribute.term.edit › Modules\Car\Admin\AttributeController@te…
+  POST      admin/module/car/attribute/term_store car.admin.attribute.term.store › Modules\Car\Admin\AttributeController@term_…
+  GET|HEAD  admin/module/car/attribute/terms/{id} car.admin.attribute.term.index › Modules\Car\Admin\AttributeController@terms
+  GET|HEAD  admin/module/car/availability ....... car.admin.availability.index › Modules\Car\Admin\AvailabilityController@index
+  GET|HEAD  admin/module/car/availability/loadDates car.admin.availability.loadDates › Modules\Car\Admin\AvailabilityControlle…
+  POST      admin/module/car/availability/store . car.admin.availability.store › Modules\Car\Admin\AvailabilityController@store
+  POST      admin/module/car/bulkEdit ........................... car.admin.bulkEdit › Modules\Car\Admin\CarController@bulkEdit
+  GET|HEAD  admin/module/car/create ................................. car.admin.create › Modules\Car\Admin\CarController@create
+  GET|HEAD  admin/module/car/edit/{id} .................................. car.admin.edit › Modules\Car\Admin\CarController@edit
+  GET|HEAD  admin/module/car/getForSelect2 ............ car.admin.getForSelect2 › Modules\Car\Admin\CarController@getForSelect2
+  GET|HEAD  admin/module/car/recovery ........................... car.admin.recovery › Modules\Car\Admin\CarController@recovery
+  POST      admin/module/car/store/{id} ............................... car.admin.store › Modules\Car\Admin\CarController@store
+  GET|HEAD  admin/module/contact .......................... contact.admin.index › Modules\Contact\Admin\ContactController@index
+  POST      admin/module/contact/bulkEdit ........... contact.admin.bulkEdit › Modules\Contact\Admin\ContactController@bulkEdit
+  GET|HEAD  admin/module/contact/getForSelect2 contact.admin.getForSelect2 › Modules\Contact\Admin\ContactController@getForSel…
+  POST      admin/module/core/markAllAsRead core.admin.notification.markAllAsRead › Modules\Core\Admin\NotificationController@…
+  POST      admin/module/core/markAsRead core.admin.notification.markAsRead › Modules\Core\Admin\NotificationController@markAs…
+  GET|HEAD  admin/module/core/menu ............................ core.admin.menu.index › Modules\Core\Admin\MenuController@index
+  POST      admin/module/core/menu/bulkEdit ............. core.admin.menu.bulkEdit › Modules\Core\Admin\MenuController@bulkEdit
+  GET|HEAD  admin/module/core/menu/create ................... core.admin.menu.create › Modules\Core\Admin\MenuController@create
+  GET|HEAD  admin/module/core/menu/edit/{id} .................... core.admin.menu.edit › Modules\Core\Admin\MenuController@edit
+  POST      admin/module/core/menu/getTypes ............. core.admin.menu.getTypes › Modules\Core\Admin\MenuController@getTypes
+  POST      admin/module/core/menu/searchTypeItems core.admin.menu.searchTypeItems › Modules\Core\Admin\MenuController@searchT…
+  POST      admin/module/core/menu/store ...................... core.admin.menu.store › Modules\Core\Admin\MenuController@store
+  GET|HEAD  admin/module/core/notifications core.admin.notification.loadNotify › Modules\Core\Admin\NotificationController@loa…
+  GET|HEAD  admin/module/core/plugins ................... core.admin.plugins.index › Modules\Core\Admin\PluginsController@index
+  POST      admin/module/core/plugins ............. core.admin.plugins.bulkEdit › Modules\Core\Admin\PluginsController@bulkEdit
+  GET|HEAD  admin/module/core/settings/index/{group} .. core.admin.settings.index › Modules\Core\Admin\SettingsController@index
+  POST      admin/module/core/settings/store/{group} .. core.admin.settings.store › Modules\Core\Admin\SettingsController@store
+  GET|HEAD  admin/module/core/term/getForSelect2 ...... core.admin.term.getForSelect2 › Modules\Core\Admin\TermController@index
+  GET|HEAD  admin/module/core/tools .......................... core.admin.tool.index › Modules\Core\Admin\ToolsController@index
+  GET|HEAD  admin/module/core/updater ................... core.admin.updater.index › Modules\Core\Admin\UpdaterController@index
+  POST      admin/module/core/updater/check_update core.admin.updater.check_update › Modules\Core\Admin\UpdaterController@chec…
+  POST      admin/module/core/updater/do_update .. core.admin.updater.do_update › Modules\Core\Admin\UpdaterController@doUpdate
+  POST      admin/module/core/updater/store_license core.admin.updater.store_license › Modules\Core\Admin\UpdaterController@st…
+  GET|HEAD  admin/module/coupon .............................. coupon.admin.index › Modules\Coupon\Admin\CouponController@index
+  POST      admin/module/coupon/bulkEdit ............... coupon.admin.bulkEdit › Modules\Coupon\Admin\CouponController@bulkEdit
+  GET|HEAD  admin/module/coupon/create ..................... coupon.admin.create › Modules\Coupon\Admin\CouponController@create
+  GET|HEAD  admin/module/coupon/edit/{id} ...................... coupon.admin.edit › Modules\Coupon\Admin\CouponController@edit
+  GET|HEAD  admin/module/coupon/get_services coupon.admin.getServices › Modules\Coupon\Admin\CouponController@getServiceForSel…
+  POST      admin/module/coupon/store/{id} ................... coupon.admin.store › Modules\Coupon\Admin\CouponController@store
+  GET|HEAD  admin/module/email/testEmail ................ email.admin.testEmail › Modules\Email\Admin\EmailController@testEmail
+  GET|HEAD  admin/module/event .................................. event.admin.index › Modules\Event\Admin\EventController@index
+  GET|HEAD  admin/module/event/attribute .......... event.admin.attribute.index › Modules\Event\Admin\AttributeController@index
+  GET|HEAD  admin/module/event/attribute/edit/{id} .. event.admin.attribute.edit › Modules\Event\Admin\AttributeController@edit
+  POST      admin/module/event/attribute/editAttrBulk event.admin.attribute.editAttrBulk › Modules\Event\Admin\AttributeContro…
+  POST      admin/module/event/attribute/editTermBulk event.admin.attribute.term.editTermBulk › Modules\Event\Admin\AttributeC…
+  GET|HEAD  admin/module/event/attribute/getForSelect2 event.admin.attribute.term.getForSelect2 › Modules\Event\Admin\Attribut…
+  POST      admin/module/event/attribute/store/{id} event.admin.attribute.store › Modules\Event\Admin\AttributeController@store
+  GET|HEAD  admin/module/event/attribute/term_edit/{id} event.admin.attribute.term.edit › Modules\Event\Admin\AttributeControl…
+  POST      admin/module/event/attribute/term_store event.admin.attribute.term.store › Modules\Event\Admin\AttributeController…
+  GET|HEAD  admin/module/event/attribute/terms/{id} event.admin.attribute.term.index › Modules\Event\Admin\AttributeController…
+  GET|HEAD  admin/module/event/availability . event.admin.availability.index › Modules\Event\Admin\AvailabilityController@index
+  GET|HEAD  admin/module/event/availability/loadDates event.admin.availability.loadDates › Modules\Event\Admin\AvailabilityCon…
+  POST      admin/module/event/availability/store event.admin.availability.store › Modules\Event\Admin\AvailabilityController@…
+  POST      admin/module/event/bulkEdit ................... event.admin.bulkEdit › Modules\Event\Admin\EventController@bulkEdit
+  GET|HEAD  admin/module/event/create ......................... event.admin.create › Modules\Event\Admin\EventController@create
+  GET|HEAD  admin/module/event/edit/{id} .......................... event.admin.edit › Modules\Event\Admin\EventController@edit
+  GET|HEAD  admin/module/event/getForSelect2 .... event.admin.getForSelect2 › Modules\Event\Admin\EventController@getForSelect2
+  GET|HEAD  admin/module/event/recovery ................... event.admin.recovery › Modules\Event\Admin\EventController@recovery
+  POST      admin/module/event/store/{id} ....................... event.admin.store › Modules\Event\Admin\EventController@store
+  GET|HEAD  admin/module/flight .............................. flight.admin.index › Modules\Flight\Admin\FlightController@index
+  GET|HEAD  admin/module/flight/airline ............. flight.admin.airline.index › Modules\Flight\Admin\AirlineController@index
+  POST      admin/module/flight/airline/bulkEdit flight.admin.airline.bulkEdit › Modules\Flight\Admin\AirlineController@bulkEd…
+  GET|HEAD  admin/module/flight/airline/edit/{id} ..... flight.admin.airline.edit › Modules\Flight\Admin\AirlineController@edit
+  POST      admin/module/flight/airline/store/{id} .. flight.admin.airline.store › Modules\Flight\Admin\AirlineController@store
+  GET|HEAD  admin/module/flight/airport ............. flight.admin.airport.index › Modules\Flight\Admin\AirportController@index
+  POST      admin/module/flight/airport/bulkEdit flight.admin.airport.bulkEdit › Modules\Flight\Admin\AirportController@bulkEd…
+  GET|HEAD  admin/module/flight/airport/edit/{id} ..... flight.admin.airport.edit › Modules\Flight\Admin\AirportController@edit
+  GET|HEAD  admin/module/flight/airport/import-iata flight.admin.airport.importIATA › Modules\Flight\Admin\AirportController@i…
+  POST      admin/module/flight/airport/store/{id} .. flight.admin.airport.store › Modules\Flight\Admin\AirportController@store
+  GET|HEAD  admin/module/flight/attribute ....... flight.admin.attribute.index › Modules\Flight\Admin\AttributeController@index
+  GET|HEAD  admin/module/flight/attribute/edit/{id} flight.admin.attribute.edit › Modules\Flight\Admin\AttributeController@edit
+  POST      admin/module/flight/attribute/editAttrBulk flight.admin.attribute.bulkEdit › Modules\Flight\Admin\AttributeControl…
+  POST      admin/module/flight/attribute/editTermBulk flight.admin.attribute.editTermBulk › Modules\Flight\Admin\AttributeCon…
+  POST      admin/module/flight/attribute/store/{id} flight.admin.attribute.store › Modules\Flight\Admin\AttributeController@s…
+  GET|HEAD  admin/module/flight/attribute/term_edit/{id} flight.admin.attribute.term.edit › Modules\Flight\Admin\AttributeCont…
+  GET|POST|HEAD admin/module/flight/attribute/term_store flight.admin.attribute.term.store › Modules\Flight\Admin\AttributeCon…
+  GET|HEAD  admin/module/flight/attribute/terms/{id} flight.admin.attribute.term.index › Modules\Flight\Admin\AttributeControl…
+  POST      admin/module/flight/bulkEdit ............... flight.admin.bulkEdit › Modules\Flight\Admin\FlightController@bulkEdit
+  GET|HEAD  admin/module/flight/create ..................... flight.admin.create › Modules\Flight\Admin\FlightController@create
+  GET|HEAD  admin/module/flight/edit/{id} ...................... flight.admin.edit › Modules\Flight\Admin\FlightController@edit
+  GET|HEAD  admin/module/flight/recovery ............... flight.admin.recovery › Modules\Flight\Admin\FlightController@recovery
+  GET|HEAD  admin/module/flight/seat-type ........ flight.admin.seat_type.index › Modules\Flight\Admin\SeatTypeController@index
+  POST      admin/module/flight/seat-type/bulkEdit flight.admin.seat_type.bulkEdit › Modules\Flight\Admin\SeatTypeController@b…
+  GET|HEAD  admin/module/flight/seat-type/edit/{id} flight.admin.seat_type.edit › Modules\Flight\Admin\SeatTypeController@edit
+  POST      admin/module/flight/seat-type/store/{id} flight.admin.seat_type.store › Modules\Flight\Admin\SeatTypeController@st…
+  POST      admin/module/flight/store/{id} ................... flight.admin.store › Modules\Flight\Admin\FlightController@store
+  GET|HEAD  admin/module/flight/{flight_id}/flight-seat flight.admin.flight.seat.index › Modules\Flight\Admin\FlightSeatContro…
+  POST      admin/module/flight/{flight_id}/flight-seat/bulkEdit flight.admin.flight.seat.bulkEdit › Modules\Flight\Admin\Flig…
+  GET|HEAD  admin/module/flight/{flight_id}/flight-seat/edit/{id} flight.admin.flight.seat.edit › Modules\Flight\Admin\FlightS…
+  POST      admin/module/flight/{flight_id}/flight-seat/store/{id} flight.admin.flight.seat.store › Modules\Flight\Admin\Fligh…
+  GET|HEAD  admin/module/hotel .................................. hotel.admin.index › Modules\Hotel\Admin\HotelController@index
+  GET|HEAD  admin/module/hotel/attribute .......... hotel.admin.attribute.index › Modules\Hotel\Admin\AttributeController@index
+  GET|HEAD  admin/module/hotel/attribute/edit/{id} .. hotel.admin.attribute.edit › Modules\Hotel\Admin\AttributeController@edit
+  POST      admin/module/hotel/attribute/editAttrBulk hotel.admin.attribute.bulkEdit › Modules\Hotel\Admin\AttributeController…
+  POST      admin/module/hotel/attribute/editTermBulk hotel.admin.attribute.term.bulkEdit › Modules\Hotel\Admin\AttributeContr…
+  GET|HEAD  admin/module/hotel/attribute/getAttributeForSelect2 hotel.admin.attribute.getForSelect2 › Modules\Hotel\Admin\Attr…
+  GET|HEAD  admin/module/hotel/attribute/getForSelect2 hotel.admin.attribute.term.getForSelect2 › Modules\Hotel\Admin\Attribut…
+  POST      admin/module/hotel/attribute/store/{id} hotel.admin.attribute.store › Modules\Hotel\Admin\AttributeController@store
+  GET|HEAD  admin/module/hotel/attribute/term_edit/{id} hotel.admin.attribute.term.edit › Modules\Hotel\Admin\AttributeControl…
+  POST      admin/module/hotel/attribute/term_store hotel.admin.attribute.term.store › Modules\Hotel\Admin\AttributeController…
+  GET|HEAD  admin/module/hotel/attribute/terms/{id} hotel.admin.attribute.term.index › Modules\Hotel\Admin\AttributeController…
+  POST      admin/module/hotel/bulkEdit ................... hotel.admin.bulkEdit › Modules\Hotel\Admin\HotelController@bulkEdit
+  GET|HEAD  admin/module/hotel/create ......................... hotel.admin.create › Modules\Hotel\Admin\HotelController@create
+  GET|HEAD  admin/module/hotel/edit/{id} .......................... hotel.admin.edit › Modules\Hotel\Admin\HotelController@edit
+  GET|HEAD  admin/module/hotel/getForSelect2 .... hotel.admin.getForSelect2 › Modules\Hotel\Admin\HotelController@getForSelect2
+  GET|HEAD  admin/module/hotel/recovery ................... hotel.admin.recovery › Modules\Hotel\Admin\HotelController@recovery
+  GET|HEAD  admin/module/hotel/room/attribute hotel.admin.room.attribute.index › Modules\Hotel\Admin\RoomAttributeController@i…
+  GET|HEAD  admin/module/hotel/room/attribute/edit/{id} hotel.admin.room.attribute.edit › Modules\Hotel\Admin\RoomAttributeCon…
+  POST      admin/module/hotel/room/attribute/editAttrBulk hotel.admin.room.attribute.editAttrBulk › Modules\Hotel\Admin\RoomA…
+  GET|HEAD  admin/module/hotel/room/attribute/getForSelect2 hotel.admin.room.attribute.term.getForSelect2 › Modules\Hotel\Admi…
+  POST      admin/module/hotel/room/attribute/store/{id} hotel.admin.room.attribute.store › Modules\Hotel\Admin\RoomAttributeC…
+  GET|HEAD  admin/module/hotel/room/attribute/term_edit/{id} hotel.admin.room.attribute.term.edit › Modules\Hotel\Admin\RoomAt…
+  POST      admin/module/hotel/room/attribute/term_store hotel.admin.room.attribute.term.store › Modules\Hotel\Admin\RoomAttri…
+  GET|HEAD  admin/module/hotel/room/attribute/terms/{id} hotel.admin.room.attribute.term.index › Modules\Hotel\Admin\RoomAttri…
+  POST      admin/module/hotel/room/bulkEdit .......... hotel.admin.room.bulkEdit › Modules\Hotel\Admin\RoomController@bulkEdit
+  GET|HEAD  admin/module/hotel/room/{hotel_id}/create ..... hotel.admin.room.create › Modules\Hotel\Admin\RoomController@create
+  GET|HEAD  admin/module/hotel/room/{hotel_id}/edit/{id} ...... hotel.admin.room.edit › Modules\Hotel\Admin\RoomController@edit
+  GET|HEAD  admin/module/hotel/room/{hotel_id}/index ........ hotel.admin.room.index › Modules\Hotel\Admin\RoomController@index
+  POST      admin/module/hotel/room/{hotel_id}/store/{id} ... hotel.admin.room.store › Modules\Hotel\Admin\RoomController@store
+  POST      admin/module/hotel/store/{id} ....................... hotel.admin.store › Modules\Hotel\Admin\HotelController@store
+  GET|HEAD  admin/module/hotel/{hotel_id}/availability hotel.admin.room.availability.index › Modules\Hotel\Admin\AvailabilityC…
+  GET|HEAD  admin/module/hotel/{hotel_id}/availability/loadDates hotel.admin.room.availability.loadDates › Modules\Hotel\Admin…
+  POST      admin/module/hotel/{hotel_id}/availability/store hotel.admin.room.availability.store › Modules\Hotel\Admin\Availab…
+  GET|POST|HEAD admin/module/language .................. language.admin.index › Modules\Language\Admin\LanguageController@index
+  POST      admin/module/language/bulkEdit ....... language.admin.bulkEdit › Modules\Language\Admin\LanguageController@bulkEdit
+  GET|POST|HEAD admin/module/language/edit/{id} .......... language.admin.edit › Modules\Language\Admin\LanguageController@edit
+  GET|HEAD  admin/module/language/translation language.admin.translations.index › Modules\Language\Admin\TranslationsControlle…
+  GET|HEAD  admin/module/language/translation/build/{id} language.admin.translations.build › Modules\Language\Admin\Translatio…
+  GET|HEAD  admin/module/language/translation/detail/{id} language.admin.translations.detail › Modules\Language\Admin\Translat…
+  GET|HEAD  admin/module/language/translation/findTranslations language.admin.translations.findTranslations › Modules\Language…
+  GET|HEAD  admin/module/language/translation/loadStrings language.admin.translations,loadStrings › Modules\Language\Admin\Tra…
+  GET|HEAD  admin/module/language/translation/loadTranslateJson language.admin.translations.loadTranslateJson › Modules\Langua…
+  POST      admin/module/language/translation/store/{id} language.admin.translations.store › Modules\Language\Admin\Translatio…
+  GET|HEAD  admin/module/location ...................... location.admin.index › Modules\Location\Admin\LocationController@index
+  POST      admin/module/location/bulkEdit ....... location.admin.bulkEdit › Modules\Location\Admin\LocationController@bulkEdit
+  GET|HEAD  admin/module/location/category .... location.admin.category.index › Modules\Location\Admin\CategoryController@index
+  POST      admin/module/location/category/bulkEdit location.admin.category.bulkEdit › Modules\Location\Admin\CategoryControll…
+  GET|HEAD  admin/module/location/category/edit/{id} location.admin.category.edit › Modules\Location\Admin\CategoryController@…
+  POST      admin/module/location/category/store/{id} location.admin.category.store › Modules\Location\Admin\CategoryControlle…
+  GET|HEAD  admin/module/location/create ............. location.admin.create › Modules\Location\Admin\LocationController@create
+  GET|HEAD  admin/module/location/edit/{id} .............. location.admin.edit › Modules\Location\Admin\LocationController@edit
+  GET|HEAD  admin/module/location/getForSelect2 location.admin.getForSelect2 › Modules\Location\Admin\LocationController@getFo…
+  POST      admin/module/location/store/{id} ........... location.admin.store › Modules\Location\Admin\LocationController@store
+  GET|HEAD  admin/module/media .................................. media.admin.index › Modules\Media\Admin\MediaController@index
+  POST      admin/module/media/edit_image .............. media.admin.edit.image › Modules\Media\Admin\MediaController@editImage
+  POST      admin/module/media/getLists ................... media.admin.getLists › Modules\Media\Admin\MediaController@getLists
+  POST      admin/module/media/removeFiles .................................... Modules\Media\Admin\MediaController@removeFiles
+  POST      admin/module/media/store ................................................ Modules\Media\Admin\MediaController@store
+  GET|HEAD  admin/module/news ...................................... news.admin.index › Modules\News\Admin\NewsController@index
+  POST      admin/module/news/bulkEdit ....................... news.admin.bulkEdit › Modules\News\Admin\NewsController@bulkEdit
+  GET|HEAD  admin/module/news/category ................ news.admin.category.index › Modules\News\Admin\CategoryController@index
+  POST      admin/module/news/category/bulkEdit . news.admin.category.bulkEdit › Modules\News\Admin\CategoryController@bulkEdit
+  GET|HEAD  admin/module/news/category/edit/{id} ........ news.admin.category.edit › Modules\News\Admin\CategoryController@edit
+  GET|HEAD  admin/module/news/category/getForSelect2 news.admin.category.getForSelect2 › Modules\News\Admin\CategoryController…
+  POST      admin/module/news/category/store/{id} ..... news.admin.category.store › Modules\News\Admin\CategoryController@store
+  GET|HEAD  admin/module/news/create ............................. news.admin.create › Modules\News\Admin\NewsController@create
+  GET|HEAD  admin/module/news/edit/{id} .............................. news.admin.edit › Modules\News\Admin\NewsController@edit
+  POST      admin/module/news/store/{id} ........................... news.admin.store › Modules\News\Admin\NewsController@store
+  GET|HEAD  admin/module/news/tag ............................... news.admin.tag.index › Modules\News\Admin\TagController@index
+  POST      admin/module/news/tag/bulkEdit ................ news.admin.tag.bulkEdit › Modules\News\Admin\TagController@bulkEdit
+  GET|HEAD  admin/module/news/tag/edit/{id} ....................... news.admin.tag.edit › Modules\News\Admin\TagController@edit
+  POST      admin/module/news/tag/store/{id} .................... news.admin.tag.store › Modules\News\Admin\TagController@store
+  GET|HEAD  admin/module/page ...................................... page.admin.index › Modules\Page\Admin\PageController@index
+  GET|HEAD  admin/module/page/builder/{id} ................... page.admin.builder › Modules\Page\Admin\PageController@toBuilder
+  POST      admin/module/page/bulkEdit ....................... page.admin.bulkEdit › Modules\Page\Admin\PageController@bulkEdit
+  GET|HEAD  admin/module/page/create ............................. page.admin.create › Modules\Page\Admin\PageController@create
+  GET|HEAD  admin/module/page/edit/{id} .............................. page.admin.edit › Modules\Page\Admin\PageController@edit
+  GET|HEAD  admin/module/page/getForSelect2 ........ page.admin.getForSelect2 › Modules\Page\Admin\PageController@getForSelect2
+  POST      admin/module/page/store/{id} ........................... page.admin.store › Modules\Page\Admin\PageController@store
+  GET|HEAD  admin/module/popup .................................. popup.admin.index › Modules\Popup\Admin\PopupController@index
+  POST      admin/module/popup/bulkEdit ................... popup.admin.bulkEdit › Modules\Popup\Admin\PopupController@bulkEdit
+  GET|HEAD  admin/module/popup/create ......................... popup.admin.create › Modules\Popup\Admin\PopupController@create
+  GET|HEAD  admin/module/popup/edit/{id} .......................... popup.admin.edit › Modules\Popup\Admin\PopupController@edit
+  GET|HEAD  admin/module/popup/recovery ................... popup.admin.recovery › Modules\Popup\Admin\PopupController@recovery
+  POST      admin/module/popup/store/{id} ....................... popup.admin.store › Modules\Popup\Admin\PopupController@store
+  GET|HEAD  admin/module/report/booking ................... report.admin.booking › Modules\Report\Admin\BookingController@index
+  POST      admin/module/report/booking/bulkEdit report.admin.booking.bulkEdit › Modules\Report\Admin\BookingController@bulkEd…
+  GET|HEAD  admin/module/report/booking/email_preview/{id} report.admin.booking.email_preview › Modules\Report\Admin\BookingCo…
+  GET|HEAD  admin/module/report/enquiry ............. report.admin.enquiry.index › Modules\Report\Admin\EnquiryController@index
+  POST      admin/module/report/enquiry/bulkEdit report.admin.enquiry.bulkEdit › Modules\Report\Admin\EnquiryController@bulkEd…
+  GET|HEAD  admin/module/report/enquiry/{enquiry}/reply report.admin.enquiry.reply › Modules\Report\Admin\EnquiryController@re…
+  POST      admin/module/report/enquiry/{enquiry}/reply/store report.admin.enquiry.replyStore › Modules\Report\Admin\EnquiryCo…
+  GET|HEAD  admin/module/report/statistic ....... report.admin.statistic.index › Modules\Report\Admin\StatisticController@index
+  GET|POST|HEAD admin/module/report/statistic/reloadChart report.admin.statistic.reloadChart › Modules\Report\Admin\StatisticC…
+  GET|POST|HEAD admin/module/review .......................... review.admin.index › Modules\Review\Admin\ReviewController@index
+  POST      admin/module/review/bulkEdit ............... review.admin.bulkEdit › Modules\Review\Admin\ReviewController@bulkEdit
+  GET|HEAD  admin/module/sms/testSms .............................. sms.admin.testSms › Modules\Sms\Admin\SmsController@testSms
+  GET|HEAD  admin/module/space .................................. space.admin.index › Modules\Space\Admin\SpaceController@index
+  GET|HEAD  admin/module/space/attribute .......... space.admin.attribute.index › Modules\Space\Admin\AttributeController@index
+  GET|HEAD  admin/module/space/attribute/edit/{id} .. space.admin.attribute.edit › Modules\Space\Admin\AttributeController@edit
+  POST      admin/module/space/attribute/editAttrBulk space.admin.attribute.editAttrBulk › Modules\Space\Admin\AttributeContro…
+  POST      admin/module/space/attribute/editTermBulk space.admin.attribute.term.editTermBulk › Modules\Space\Admin\AttributeC…
+  GET|HEAD  admin/module/space/attribute/getForSelect2 space.admin.attribute.term.getForSelect2 › Modules\Space\Admin\Attribut…
+  POST      admin/module/space/attribute/store/{id} space.admin.attribute.store › Modules\Space\Admin\AttributeController@store
+  GET|HEAD  admin/module/space/attribute/term_edit/{id} space.admin.attribute.term.edit › Modules\Space\Admin\AttributeControl…
+  POST      admin/module/space/attribute/term_store space.admin.attribute.term.store › Modules\Space\Admin\AttributeController…
+  GET|HEAD  admin/module/space/attribute/terms/{id} space.admin.attribute.term.index › Modules\Space\Admin\AttributeController…
+  GET|HEAD  admin/module/space/availability . space.admin.availability.index › Modules\Space\Admin\AvailabilityController@index
+  GET|HEAD  admin/module/space/availability/loadDates space.admin.availability.loadDates › Modules\Space\Admin\AvailabilityCon…
+  POST      admin/module/space/availability/store space.admin.availability.store › Modules\Space\Admin\AvailabilityController@…
+  POST      admin/module/space/bulkEdit ................... space.admin.bulkEdit › Modules\Space\Admin\SpaceController@bulkEdit
+  GET|HEAD  admin/module/space/create ......................... space.admin.create › Modules\Space\Admin\SpaceController@create
+  GET|HEAD  admin/module/space/edit/{id} .......................... space.admin.edit › Modules\Space\Admin\SpaceController@edit
+  GET|HEAD  admin/module/space/getForSelect2 .... space.admin.getForSelect2 › Modules\Space\Admin\SpaceController@getForSelect2
+  GET|HEAD  admin/module/space/recovery ................... space.admin.recovery › Modules\Space\Admin\SpaceController@recovery
+  POST      admin/module/space/store/{id} ....................... space.admin.store › Modules\Space\Admin\SpaceController@store
+  GET|HEAD  admin/module/template ...................... template.admin.index › Modules\Template\Admin\TemplateController@index
+  POST      admin/module/template/bulkEdit ....... template.admin.bulkEdit › Modules\Template\Admin\TemplateController@bulkEdit
+  GET|HEAD  admin/module/template/clone/{id} ........... template.admin.clone › Modules\Template\Admin\TemplateController@clone
+  GET|HEAD  admin/module/template/create ............. template.admin.create › Modules\Template\Admin\TemplateController@create
+  GET|HEAD  admin/module/template/edit/{id} .............. template.admin.edit › Modules\Template\Admin\TemplateController@edit
+  GET|HEAD  admin/module/template/exportTemplate/{id} template.admin.exportTemplate › Modules\Template\Admin\TemplateControlle…
+  GET|HEAD  admin/module/template/getBlocks .... template.admin.getBlocks › Modules\Template\Admin\TemplateController@getBlocks
+  GET|HEAD  admin/module/template/getForSelect2 template.admin.getForSelect2 › Modules\Template\Admin\TemplateController@getFo…
+  GET|POST|HEAD admin/module/template/importTemplate template.admin.importTemplate › Modules\Template\Admin\TemplateController…
+  POST      admin/module/template/store ................ template.admin.store › Modules\Template\Admin\TemplateController@store
+  GET|HEAD  admin/module/theme .................................. theme.admin.index › Modules\Theme\Admin\ThemeController@index
+  POST      admin/module/theme/active/{theme} ............. theme.admin.activate › Modules\Theme\Admin\ThemeController@activate
+  POST      admin/module/theme/seeding/{theme} .............. theme.admin.seeding › Modules\Theme\Admin\ThemeController@seeding
+  GET|HEAD  admin/module/tour ...................................... tour.admin.index › Modules\Tour\Admin\TourController@index
+  GET|HEAD  admin/module/tour/attribute ............. tour.admin.attribute.index › Modules\Tour\Admin\AttributeController@index
+  GET|HEAD  admin/module/tour/attribute/edit/{id} ..... tour.admin.attribute.edit › Modules\Tour\Admin\AttributeController@edit
+  POST      admin/module/tour/attribute/editAttrBulk tour.admin.attribute.editAttrBulk › Modules\Tour\Admin\AttributeControlle…
+  POST      admin/module/tour/attribute/editTermBulk tour.admin.attribute.term.editTermBulk › Modules\Tour\Admin\AttributeCont…
+  POST      admin/module/tour/attribute/store/{id} .. tour.admin.attribute.store › Modules\Tour\Admin\AttributeController@store
+  GET|HEAD  admin/module/tour/attribute/term_edit/{id} tour.admin.attribute.term.edit › Modules\Tour\Admin\AttributeController…
+  POST      admin/module/tour/attribute/term_store/{id} tour.admin.attribute.term.store › Modules\Tour\Admin\AttributeControll…
+  GET|HEAD  admin/module/tour/attribute/terms/{attr_id} tour.admin.attribute.term.index › Modules\Tour\Admin\AttributeControll…
+  GET|HEAD  admin/module/tour/availability .... tour.admin.availability.index › Modules\Tour\Admin\AvailabilityController@index
+  GET|HEAD  admin/module/tour/availability/loadDates tour.admin.availability.loadDates › Modules\Tour\Admin\AvailabilityContro…
+  POST      admin/module/tour/availability/store tour.admin.availability.store › Modules\Tour\Admin\AvailabilityController@sto…
+  GET|HEAD  admin/module/tour/booking ................... tour.admin.booking.index › Modules\Tour\Admin\BookingController@index
+  POST      admin/module/tour/bulkEdit ....................... tour.admin.bulkEdit › Modules\Tour\Admin\TourController@bulkEdit
+  GET|HEAD  admin/module/tour/category ................ tour.admin.category.index › Modules\Tour\Admin\CategoryController@index
+  POST      admin/module/tour/category/bulkEdit . tour.admin.category.bulkEdit › Modules\Tour\Admin\CategoryController@bulkEdit
+  GET|HEAD  admin/module/tour/category/edit/{id} ........ tour.admin.category.edit › Modules\Tour\Admin\CategoryController@edit
+  GET|HEAD  admin/module/tour/category/getForSelect2 tour.admin.category.category.getForSelect2 › Modules\Tour\Admin\CategoryC…
+  POST      admin/module/tour/category/store/{id} ..... tour.admin.category.store › Modules\Tour\Admin\CategoryController@store
+  GET|HEAD  admin/module/tour/create ............................. tour.admin.create › Modules\Tour\Admin\TourController@create
+  GET|HEAD  admin/module/tour/edit/{id} .............................. tour.admin.edit › Modules\Tour\Admin\TourController@edit
+  GET|HEAD  admin/module/tour/getForSelect2 ........ tour.admin.getForSelect2 › Modules\Tour\Admin\TourController@getForSelect2
+  GET|HEAD  admin/module/tour/recovery ....................... tour.admin.recovery › Modules\Tour\Admin\TourController@recovery
+  POST      admin/module/tour/store/{id} ........................... tour.admin.store › Modules\Tour\Admin\TourController@store
+  GET|HEAD  admin/module/user ...................................... user.admin.index › Modules\User\Admin\UserController@index
+  POST      admin/module/user/bulkEdit ....................... user.admin.bulkEdit › Modules\User\Admin\UserController@bulkEdit
+  POST      admin/module/user/changepass/{id} ............ user.admin.changepass › Modules\User\Admin\UserController@changepass
+  GET|HEAD  admin/module/user/create ............................. user.admin.create › Modules\User\Admin\UserController@create
+  GET|HEAD  admin/module/user/edit/{id} ............................ user.admin.detail › Modules\User\Admin\UserController@edit
+  GET|HEAD  admin/module/user/export ............................. user.admin.export › Modules\User\Admin\UserController@export
+  GET|HEAD  admin/module/user/getForSelect2 ........ user.admin.getForSelect2 › Modules\User\Admin\UserController@getForSelect2
+  GET|HEAD  admin/module/user/password/{id} .................. user.admin.password › Modules\User\Admin\UserController@password
+  GET|HEAD  admin/module/user/plan ............................ user.admin.plan.index › Modules\User\Admin\PlanController@index
+  GET|HEAD  admin/module/user/plan-report ........ user.admin.plan_report.index › Modules\User\Admin\PlanReportController@index
+  POST      admin/module/user/plan-report/bulkEdit user.admin.plan_report.bulkEdit › Modules\User\Admin\PlanReportController@b…
+  GET|HEAD  admin/module/user/plan-request ..... user.admin.plan_request.index › Modules\User\Admin\PlanRequestController@index
+  POST      admin/module/user/plan-request/bulkEdit user.admin.plan_request.bulkEdit › Modules\User\Admin\PlanRequestControlle…
+  POST      admin/module/user/plan/bulkEdit ............. user.admin.plan.bulkEdit › Modules\User\Admin\PlanController@bulkEdit
+  GET|HEAD  admin/module/user/plan/edit/{id} .................... user.admin.plan.edit › Modules\User\Admin\PlanController@edit
+  GET|HEAD  admin/module/user/plan/getForSelect2 user.admin.plan.getForSelect2 › Modules\User\Admin\PlanController@getForSelec…
+  POST      admin/module/user/plan/store/{id} ................. user.admin.plan.store › Modules\User\Admin\PlanController@store
+  GET|HEAD  admin/module/user/role ............................ user.admin.role.index › Modules\User\Admin\RoleController@index
+  POST      admin/module/user/role/bulkEdit ............. user.admin.role.bulkEdit › Modules\User\Admin\RoleController@bulkEdit
+  GET|HEAD  admin/module/user/role/create ................... user.admin.role.create › Modules\User\Admin\RoleController@create
+  GET|HEAD  admin/module/user/role/edit/{id} .................. user.admin.role.detail › Modules\User\Admin\RoleController@edit
+  GET|HEAD  admin/module/user/role/permission_matrix user.admin.role.permission_matrix › Modules\User\Admin\RoleController@per…
+  POST      admin/module/user/role/save_permissions user.admin.role.save_permissions › Modules\User\Admin\RoleController@save_…
+  POST      admin/module/user/role/store/{id} ................. user.admin.role.store › Modules\User\Admin\RoleController@store
+  GET|HEAD  admin/module/user/role/verifyFields . user.admin.role.verifyFields › Modules\User\Admin\RoleController@verifyFields
+  GET|HEAD  admin/module/user/role/verifyFieldsEdit/{id} user.admin.role.verifyFieldsEdit › Modules\User\Admin\RoleController@…
+  POST      admin/module/user/role/verifyFieldsStore user.admin.role.verifyFieldsStore › Modules\User\Admin\RoleController@ver…
+  POST      admin/module/user/store/{id} ........................... user.admin.store › Modules\User\Admin\UserController@store
+  GET|HEAD  admin/module/user/subscriber .......... user.admin.subscriber.index › Modules\User\Admin\SubscriberController@index
+  POST      admin/module/user/subscriber/bulkEdit user.admin.subscriber.bulkEdit › Modules\User\Admin\SubscriberController@bul…
+  GET|HEAD  admin/module/user/subscriber/edit/{id} .. user.admin.subscriber.edit › Modules\User\Admin\SubscriberController@edit
+  GET|HEAD  admin/module/user/subscriber/export . user.admin.subscriber.export › Modules\User\Admin\SubscriberController@export
+  POST      admin/module/user/subscriber/store .... user.admin.subscriber.store › Modules\User\Admin\SubscriberController@store
+  GET|HEAD  admin/module/user/upgrade/{id} user.admin.upgradeId › Modules\User\Admin\UserController@userUpgradeRequestApproved…
+  GET|HEAD  admin/module/user/userUpgradeRequest .... user.admin.upgrade › Modules\User\Admin\UserController@userUpgradeRequest
+  POST      admin/module/user/userUpgradeRequestApproved user.admin.userUpgradeRequestApproved › Modules\User\Admin\UserContro…
+  GET|HEAD  admin/module/user/verification .... user.admin.verification.index › Modules\User\Admin\VerificationController@index
+  POST      admin/module/user/verification/bulkEdit user.admin.verification.bulkEdit › Modules\User\Admin\VerificationControll…
+  GET|HEAD  admin/module/user/verification/detail/{id} user.admin.verification.detail › Modules\User\Admin\VerificationControl…
+  POST      admin/module/user/verification/store/{id} user.admin.verification.store › Modules\User\Admin\VerificationControlle…
+  GET|HEAD  admin/module/user/verify-email/{id} ........ user.admin.verifyEmail › Modules\User\Admin\UserController@verifyEmail
+  GET|HEAD  admin/module/user/wallet/add-credit/{id} user.admin.wallet.addCredit › Modules\User\Admin\WalletController@addCred…
+  POST      admin/module/user/wallet/add-credit/{id} ...... user.admin.wallet.store › Modules\User\Admin\WalletController@store
+  GET|HEAD  admin/module/user/wallet/report ............. user.admin.wallet.report › Modules\User\Admin\WalletController@report
+  POST      admin/module/user/wallet/reportBulkEdit user.admin.wallet.reportBulkEdit › Modules\User\Admin\WalletController@rep…
+  GET|HEAD  admin/module/vendor/payout ................ vendor.admin.payout.index › Modules\Vendor\Admin\PayoutController@index
+  POST      admin/module/vendor/payout/bulkEdit . vendor.admin.payout.bulkEdit › Modules\Vendor\Admin\PayoutController@bulkEdit
+  GET|HEAD  admin/module/vendor/plan ...................... vendor.admin.plan.index › Modules\Vendor\Admin\PlanController@index
+  POST      admin/module/vendor/plan/bulkEdit ....... vendor.admin.plan.bulkEdit › Modules\Vendor\Admin\PlanController@bulkEdit
+  GET|HEAD  admin/module/vendor/plan/create ............. vendor.admin.plan.create › Modules\Vendor\Admin\PlanController@create
+  GET|HEAD  admin/module/vendor/plan/edit/{id} .............. vendor.admin.plan.edit › Modules\Vendor\Admin\PlanController@edit
+  GET|HEAD  admin/module/vendor/plan/getForSelect2 vendor.admin.plan.getForSelect2 › Modules\Vendor\Admin\PlanController@getFo…
+  GET|HEAD  admin/type/{type} ...................................... type.admin.index › Modules\Type\Admin\TypeController@index
+  GET|HEAD  admin/type/{type}/attribute ............. type.admin.attribute.index › Modules\Type\Admin\AttributeController@index
+  GET|HEAD  admin/type/{type}/attribute/edit/{id} ..... type.admin.attribute.edit › Modules\Type\Admin\AttributeController@edit
+  POST      admin/type/{type}/attribute/editAttrBulk type.admin.attribute.editAttrBulk › Modules\Type\Admin\AttributeControlle…
+  POST      admin/type/{type}/attribute/editTermBulk type.admin.attribute.term.editTermBulk › Modules\Type\Admin\AttributeCont…
+  POST      admin/type/{type}/attribute/store/{id} .. type.admin.attribute.store › Modules\Type\Admin\AttributeController@store
+  GET|HEAD  admin/type/{type}/attribute/term_edit/{id} type.admin.attribute.term.edit › Modules\Type\Admin\AttributeController…
+  POST      admin/type/{type}/attribute/term_store/{id} type.admin.attribute.term.store › Modules\Type\Admin\AttributeControll…
+  GET|HEAD  admin/type/{type}/attribute/terms/{attr_id} type.admin.attribute.term.index › Modules\Type\Admin\AttributeControll…
+  POST      admin/type/{type}/bulkEdit ....................... type.admin.bulkEdit › Modules\Type\Admin\TypeController@bulkEdit
+  GET|HEAD  admin/type/{type}/create ............................. type.admin.create › Modules\Type\Admin\TypeController@create
+  GET|HEAD  admin/type/{type}/edit/{id} .............................. type.admin.edit › Modules\Type\Admin\TypeController@edit
+  GET|HEAD  admin/type/{type}/recovery ....................... type.admin.recovery › Modules\Type\Admin\TypeController@recovery
+  POST      admin/type/{type}/store/{id} ........................... type.admin.store › Modules\Type\Admin\TypeController@store
+  GET|HEAD  aloveyoufcdetest123454545akaf ..................................................................................... 
+  GET|HEAD  api-admin/airline/getForSelect2 flight.admin.airline.getForSelect2 › Modules\Flight\Admin\AirlineController@getFor…
+  GET|HEAD  api-admin/airport/getForSelect2 flight.admin.airport.getForSelect2 › Modules\Flight\Admin\AirportController@getFor…
+  GET|HEAD  api-admin/attribute/getForSelect2 flight.admin.attribute.term.getForSelect2 › Modules\Flight\Admin\AttributeContro…
+  GET|HEAD  api-admin/seat-type/getForSelect2 flight.admin.seat_type.getForSelect2 › Modules\Flight\Admin\SeatTypeController@g…
+  POST      api/auth/change-password .................................... Modules\Api\Controllers\AuthController@changePassword
+  POST      api/auth/login ....................................................... Modules\Api\Controllers\AuthController@login
+  POST      api/auth/logout ..................................................... Modules\Api\Controllers\AuthController@logout
+  GET|HEAD  api/auth/me ............................................................. Modules\Api\Controllers\AuthController@me
+  POST      api/auth/me ..................................................... Modules\Api\Controllers\AuthController@updateUser
+  POST      api/auth/refresh ................................................... Modules\Api\Controllers\AuthController@refresh
+  POST      api/auth/register ................................................. Modules\Api\Controllers\AuthController@register
+  GET|HEAD  api/boat/availability-booking/{id} api.service.checkBoatAvailability › Modules\Api\Controllers\SearchController@ch…
+  POST      api/booking/addEnquiry ............. api.booking.add_enquiry › Modules\Api\Controllers\BookingController@addEnquiry
+  POST      api/booking/addToCart ............... api.booking.add_to_cart › Modules\Api\Controllers\BookingController@addToCart
+  GET|HEAD  api/booking/cancel/{gateway} .............................. Modules\Api\Controllers\BookingController@cancelPayment
+  GET|HEAD  api/booking/confirm/{gateway} ............................ Modules\Api\Controllers\BookingController@confirmPayment
+  POST      api/booking/doCheckout .............. api.booking.doCheckout › Modules\Api\Controllers\BookingController@doCheckout
+  GET|HEAD  api/booking/{code} ............................................... Modules\Api\Controllers\BookingController@detail
+  GET|HEAD  api/booking/{code}/check-status ..................... Modules\Api\Controllers\BookingController@checkStatusCheckout
+  GET|HEAD  api/booking/{code}/checkout .................................... Modules\Api\Controllers\BookingController@checkout
+  GET|HEAD  api/booking/{code}/thankyou ................. booking.thankyou › Modules\Api\Controllers\BookingController@thankyou
+  GET|HEAD  api/configs ................................ api.get_configs › Modules\Api\Controllers\BookingController@getConfigs
+  GET|HEAD  api/gateways .......................................... Modules\Api\Controllers\BookingController@getGatewaysForApi
+  GET|HEAD  api/home-page ....................... api.get_home_layout › Modules\Api\Controllers\BookingController@getHomeLayout
+  GET|HEAD  api/location/{id} ......................... api.location.detail › Modules\Api\Controllers\LocationController@detail
+  GET|HEAD  api/locations ............................. api.location.search › Modules\Api\Controllers\LocationController@search
+  POST      api/media/store ................................... api.media.store › Modules\Api\Controllers\MediaController@store
+  GET|HEAD  api/news .......................................... api.news.search › Modules\Api\Controllers\NewsController@search
+  GET|HEAD  api/news/category ............................. api.news.category › Modules\Api\Controllers\NewsController@category
+  GET|HEAD  api/news/{id} ..................................... api.news.detail › Modules\Api\Controllers\NewsController@detail
+  GET|HEAD  api/services ......................... api.service-search › Modules\Api\Controllers\SearchController@searchServices
+  GET|HEAD  api/user .......................................................................................................... 
+  GET|HEAD  api/user/booking-history ...... api.user.booking_history › Modules\Api\Controllers\UserController@getBookingHistory
+  POST      api/user/permanently_delete .... user.permanently.delete › Modules\Api\Controllers\UserController@permanentlyDelete
+  POST      api/user/wishlist ................ api.user.wishList.handle › Modules\Api\Controllers\UserController@handleWishList
+  GET|HEAD  api/user/wishlist .................. api.user.wishList.index › Modules\Api\Controllers\UserController@indexWishlist
+  GET|HEAD  api/{type}/availability/{id} api.service.check_availability › Modules\Api\Controllers\SearchController@checkAvaila…
+  GET|HEAD  api/{type}/detail/{id} ............................... api.detail › Modules\Api\Controllers\SearchController@detail
+  GET|HEAD  api/{type}/filters ....................... api.service.filter › Modules\Api\Controllers\SearchController@getFilters
+  GET|HEAD  api/{type}/form-search .................. api.service.form › Modules\Api\Controllers\SearchController@getFormSearch
+  GET|HEAD  api/{type}/search ................................... api.search2 › Modules\Api\Controllers\SearchController@search
+  POST      api/{type}/write-review/{id} ...... api.service.write_review › Modules\Api\Controllers\ReviewController@writeReview
+  GET|HEAD  boat .................................................. boat.search › Modules\Boat\Controllers\BoatController@index
+  GET|HEAD  boat/{slug} .......................................... boat.detail › Modules\Boat\Controllers\BoatController@detail
+  POST      booking/addEnquiry ....................................... Modules\Booking\Controllers\BookingController@addEnquiry
+  POST      booking/addToCart ......................................... Modules\Booking\Controllers\BookingController@addToCart
+  GET|HEAD  booking/cancel/{gateway} .............................. Modules\Booking\Controllers\BookingController@cancelPayment
+  GET|HEAD  booking/confirm/{gateway} ............................ Modules\Booking\Controllers\BookingController@confirmPayment
+  POST      booking/doCheckout .................. booking.doCheckout › Modules\Booking\Controllers\BookingController@doCheckout
+  GET|HEAD  booking/export-ical/{type}/{id} booking.admin.export-ical › Modules\Booking\Controllers\BookingController@exportIc…
+  GET|HEAD  booking/modal/{booking} ....................... booking.modal › Modules\Booking\Controllers\BookingController@modal
+  POST      booking/setPaidAmount ......... booking.setPaidAmount › Modules\Booking\Controllers\BookingController@setPaidAmount
+  GET|HEAD  booking/{code} ............................................... Modules\Booking\Controllers\BookingController@detail
+  POST      booking/{code}/apply-coupon ................ coupon.apply › Modules\Coupon\Controllers\CouponController@applyCoupon
+  GET|HEAD  booking/{code}/check-status ..................... Modules\Booking\Controllers\BookingController@checkStatusCheckout
+  GET|HEAD  booking/{code}/checkout ................. booking.checkout › Modules\Booking\Controllers\BookingController@checkout
+  POST      booking/{code}/remove-coupon ............. coupon.remove › Modules\Coupon\Controllers\CouponController@removeCoupon
+  GET|HEAD  car ...................................................... car.search › Modules\Car\Controllers\CarController@index
+  GET|HEAD  car/{slug} .............................................. car.detail › Modules\Car\Controllers\CarController@detail
+  GET|HEAD  chatify ......................................................... chatify › Chatify\Http › MessagesController@index
+  POST      chatify/api/chat/auth .............................. api.pusher.auth › Chatify\Http › MessagesController@pusherAuth
+  POST      chatify/api/deleteConversation ..... api.conversation.delete › Chatify\Http › MessagesController@deleteConversation
+  GET|HEAD  chatify/api/download/{fileName} ............. api.attachments.download › Chatify\Http › MessagesController@download
+  POST      chatify/api/favorites .............................. api.favorites › Chatify\Http › MessagesController@getFavorites
+  POST      chatify/api/fetchMessages ............................ api.fetch.messages › Chatify\Http › MessagesController@fetch
+  GET|HEAD  chatify/api/getContacts .......................... api.contacts.get › Chatify\Http › MessagesController@getContacts
+  POST      chatify/api/idInfo ..................................... api.idInfo › Chatify\Http › MessagesController@idFetchData
+  POST      chatify/api/makeSeen ................................... api.messages.seen › Chatify\Http › MessagesController@seen
+  GET|HEAD  chatify/api/search .......................................... api.search › Chatify\Http › MessagesController@search
+  POST      chatify/api/sendMessage ................................. api.send.message › Chatify\Http › MessagesController@send
+  POST      chatify/api/setActiveStatus .............. api.activeStatus.set › Chatify\Http › MessagesController@setActiveStatus
+  POST      chatify/api/shared .................................... api.shared › Chatify\Http › MessagesController@sharedPhotos
+  POST      chatify/api/star ............................................ api.star › Chatify\Http › MessagesController@favorite
+  POST      chatify/api/updateSettings ................... api.avatar.update › Chatify\Http › MessagesController@updateSettings
+  POST      chatify/chat/auth ...................................... pusher.auth › Chatify\Http › MessagesController@pusherAuth
+  POST      chatify/deleteConversation ............. conversation.delete › Chatify\Http › MessagesController@deleteConversation
+  POST      chatify/deleteMessage ............................ message.delete › Chatify\Http › MessagesController@deleteMessage
+  GET|HEAD  chatify/download/{fileName} ..................... attachments.download › Chatify\Http › MessagesController@download
+  POST      chatify/favorites ...................................... favorites › Chatify\Http › MessagesController@getFavorites
+  POST      chatify/fetchMessages .................................... fetch.messages › Chatify\Http › MessagesController@fetch
+  GET|HEAD  chatify/getContacts .................................. contacts.get › Chatify\Http › MessagesController@getContacts
+  GET|HEAD  chatify/group/{id} ................................................ group › Chatify\Http › MessagesController@index
+  POST      chatify/idInfo ...................................................... Chatify\Http › MessagesController@idFetchData
+  POST      chatify/makeSeen ........................................... messages.seen › Chatify\Http › MessagesController@seen
+  GET|HEAD  chatify/search .................................................. search › Chatify\Http › MessagesController@search
+  POST      chatify/sendMessage ......................................... send.message › Chatify\Http › MessagesController@send
+  POST      chatify/setActiveStatus ...................... activeStatus.set › Chatify\Http › MessagesController@setActiveStatus
+  POST      chatify/shared ............................................ shared › Chatify\Http › MessagesController@sharedPhotos
+  POST      chatify/star .................................................... star › Chatify\Http › MessagesController@favorite
+  POST      chatify/updateContacts ...................... contacts.update › Chatify\Http › MessagesController@updateContactItem
+  POST      chatify/updateSettings ........................... avatar.update › Chatify\Http › MessagesController@updateSettings
+  GET|HEAD  chatify/{id} ....................................................... user › Chatify\Http › MessagesController@index
+  GET|HEAD  check-cookie ............................. core.cookie.check › Modules\Core\Controllers\CookieController@saveCookie
+  GET|HEAD  confirmTwoCheckout .................... Plugins\PaymentTwoCheckout\Controllers\TwoCheckoutController@handleCheckout
+  GET|HEAD  contact ....................................... contact.index › Modules\Contact\Controllers\ContactController@index
+  POST      contact/store ................................. contact.store › Modules\Contact\Controllers\ContactController@store
+  GET|HEAD  custom-css .............................. core.style.customCss › Modules\Core\Controllers\StyleController@customCss
+  GET|HEAD  en/confirmTwoCheckout ................. Plugins\PaymentTwoCheckout\Controllers\TwoCheckoutController@handleCheckout
+  GET|HEAD  event .............................................. event.search › Modules\Event\Controllers\EventController@index
+  GET|HEAD  event/{slug} ...................................... event.detail › Modules\Event\Controllers\EventController@detail
+  GET|HEAD  flight .......................................... flight.search › Modules\Flight\Controllers\FlightController@index
+  GET|HEAD  flight/airport/search ................. flight.airport.search › Modules\Flight\Controllers\AirportController@search
+  POST      flight/getData/{id} .......................... flight.getData › Modules\Flight\Controllers\FlightController@getData
+  GET|HEAD  forgot-password ........................... password.request › Laravel\Fortify › PasswordResetLinkController@create
+  POST      forgot-password .............................. password.email › Laravel\Fortify › PasswordResetLinkController@store
+  GET|HEAD  gateway/cancel/{gateway} ...... gateway.cancel › Modules\Booking\Controllers\NormalCheckoutController@cancelPayment
+  GET|HEAD  gateway/confirm/{gateway} ... gateway.confirm › Modules\Booking\Controllers\NormalCheckoutController@confirmPayment
+  GET|POST|HEAD gateway/gateway_callback/{gateway} gateway.webhook › Modules\Booking\Controllers\BookingController@callbackPay…
+  GET|HEAD  gateway/info ......................... gateway.info › Modules\Booking\Controllers\NormalCheckoutController@showInfo
+  GET|HEAD  hotel .............................................. hotel.search › Modules\Hotel\Controllers\HotelController@index
+  POST      hotel/checkAvailability ..... hotel.checkAvailability › Modules\Hotel\Controllers\HotelController@checkAvailability
+  GET|HEAD  hotel/{slug} ...................................... hotel.detail › Modules\Hotel\Controllers\HotelController@detail
+  GET|HEAD  install ..................................... LaravelInstaller::welcome › InstallerController@redirectToRequirement
+  GET|HEAD  install/database ......... LaravelInstaller::database › RachidLaasri\LaravelInstaller › DatabaseController@database
+  GET|HEAD  install/environment .......................... LaravelInstaller::environment › InstallerController@redirectToWizard
+  GET|HEAD  install/environment/classic LaravelInstaller::environmentClassic › RachidLaasri\LaravelInstaller › EnvironmentCont…
+  POST      install/environment/saveClassic LaravelInstaller::environmentSaveClassic › RachidLaasri\LaravelInstaller › Environ…
+  POST      install/environment/saveWizard LaravelInstaller::environmentSaveWizard › RachidLaasri\LaravelInstaller › Environme…
+  GET|HEAD  install/environment/wizard LaravelInstaller::environmentWizard › RachidLaasri\LaravelInstaller › EnvironmentContro…
+  GET|HEAD  install/final .................... LaravelInstaller::final › RachidLaasri\LaravelInstaller › FinalController@finish
+  GET|HEAD  install/permissions LaravelInstaller::permissions › RachidLaasri\LaravelInstaller › PermissionsController@permissi…
+  GET|HEAD  install/requirements LaravelInstaller::requirements › RachidLaasri\LaravelInstaller › RequirementsController@requi…
+  GET|HEAD  language/set-admin-lang/{locale} language.set-admin-lang › Modules\Language\Controllers\LanguageController@setAdmi…
+  GET|HEAD  language/set-lang/{locale} ............ language.set-lang › Modules\Language\Controllers\LanguageController@setLang
+  GET|HEAD  location/search/searchForSelect2 location.searchForSelect › Modules\Location\Controllers\LocationController@search…
+  GET|HEAD  location/{slug} .......................... location.detail › Modules\Location\Controllers\LocationController@detail
+  GET|HEAD  login ............................................. login › Laravel\Fortify › AuthenticatedSessionController@create
+  POST      login ...................................................... Laravel\Fortify › AuthenticatedSessionController@store
+  POST      logout .......................................... logout › Laravel\Fortify › AuthenticatedSessionController@destroy
+  POST      media/edit_image ........................... media.edit.image › Modules\Media\Controllers\MediaController@editImage
+  GET|HEAD  media/folder ................................ media.folder.index › Modules\Media\Controllers\FolderController@index
+  POST      media/folder/delete ....................... media.folder.delete › Modules\Media\Controllers\FolderController@delete
+  POST      media/folder/store .......................... media.folder.store › Modules\Media\Controllers\FolderController@store
+  GET|HEAD  media/preview/{id}/{size?} ...................................... Modules\Media\Controllers\MediaController@preview
+  POST      media/private/store .............. media.private.store › Modules\Media\Controllers\MediaController@privateFileStore
+  GET|HEAD  media/private/view ................. media.private.view › Modules\Media\Controllers\MediaController@privateFileView
+  GET|HEAD  news ................................................... news.index › Modules\News\Controllers\NewsController@index
+  GET|HEAD  news/category/{slug} .................. news.category.index › Modules\News\Controllers\CategoryNewsController@index
+  GET|HEAD  news/tag/{slug} ................................. news.tag.index › Modules\News\Controllers\TagNewsController@index
+  GET|HEAD  news/{slug} .......................................... news.detail › Modules\News\Controllers\NewsController@detail
+  POST      newsletter/subscribe ..................... newsletter.subscribe › Modules\User\Controllers\UserController@subscribe
+  POST      notify/markAllAsRead core.notification.markAllAsRead › Modules\Core\Controllers\NotificationController@markAllAsRe…
+  POST      notify/markAsRead ....... core.notification.markAsRead › Modules\Core\Controllers\NotificationController@markAsRead
+  GET|HEAD  notify/notifications .... core.notification.loadNotify › Modules\Core\Controllers\NotificationController@loadNotify
+  GET|HEAD  page/{slug?} ......................................... page.detail › Modules\Page\Controllers\PageController@detail
+  GET|HEAD  plan ......................................................... plan › Modules\User\Controllers\PlanController@index
+  GET|HEAD  plan/thank-you ............................. user.plan.thank-you › Modules\User\Controllers\PlanController@thankYou
+  GET|HEAD  profile/{id} .................................... user.profile › Modules\User\Controllers\ProfileController@profile
+  GET|HEAD  profile/{id}/reviews ................. user.profile.reviews › Modules\User\Controllers\ProfileController@allReviews
+  GET|HEAD  profile/{id}/services .............. user.profile.services › Modules\User\Controllers\ProfileController@allServices
+  GET|HEAD  register .................... auth.register › Modules\User\Controllers\Auth\RegisterController@showRegistrationForm
+  POST      register .......................... auth.register.store › Modules\User\Controllers\Auth\RegisterController@register
+  POST      reset-password .................................... password.update › Laravel\Fortify › NewPasswordController@store
+  GET|HEAD  reset-password/{token} ............................ password.reset › Laravel\Fortify › NewPasswordController@create
+  GET|HEAD  review ............................................................................................................ 
+  POST      review ....................................... review.store › Modules\Review\Controllers\ReviewController@addReview
+  GET|HEAD  sanctum/csrf-cookie ............................. sanctum.csrf-cookie › Laravel\Sanctum › CsrfCookieController@show
+  GET|HEAD  sitemap-{id}.xml ................................... sitemap.path › Modules\Core\Controllers\SitemapController@path
+  GET|HEAD  sitemap.xml ...................................... sitemap.index › Modules\Core\Controllers\SitemapController@index
+  GET|HEAD  social-callback/{provider} .................................................... Auth\LoginController@socialCallBack
+  GET|HEAD  social-login/{provider} .......................................................... Auth\LoginController@socialLogin
+  GET|HEAD  space .............................................. space.search › Modules\Space\Controllers\SpaceController@index
+  GET|HEAD  space/{slug} ...................................... space.detail › Modules\Space\Controllers\SpaceController@detail
+  GET|HEAD  team-accept ........................................ team-accept › Modules\Vendor\Controllers\TeamController@accept
+  GET|HEAD  thanh-midu ........................................................................................................ 
+  GET|HEAD  thanhcry-aloveyoufcdetest123454545akaf ............................................................................ 
+  GET|HEAD  thanhcry1-aloveyoufcdetest123454545akaf ........................................................................... 
+  GET|HEAD  thanhcry2-aloveyoufcdetest123454545akaf ........................................................................... 
+  GET|HEAD  thanhcry3-aloveyoufcdetest123454545akaf ........................................................................... 
+  GET|HEAD  thanhcry4-aloveyoufcdetest123454545akaf ........................................................................... 
+  GET|HEAD  thanhcry5-aloveyoufcdetest123454545akaf ........................................................................... 
+  GET|HEAD  thanhcry6-aloveyoufcdetest123454545akaf ........................................................................... 
+  GET|HEAD  thanhcry7-aloveyoufcdetest123454545akaf ........................................................................... 
+  GET|HEAD  thanhtest ......................................................................................................... 
+  GET|HEAD  thanhtest123 ...................................................................................................... 
+  GET|HEAD  thanhtest123454545 ................................................................................................ 
+  GET|HEAD  thanhtest1234545452929 ............................................................................................ 
+  GET|HEAD  thanhtest123454545456 ............................................................................................. 
+  GET|HEAD  thanhtest123454545akaf ............................................................................................ 
+  GET|HEAD  tools/clear-cache ...................... core.tool.clearCache › Modules\Core\Controllers\ToolsController@clearCache
+  GET|HEAD  tour .................................................. tour.search › Modules\Tour\Controllers\TourController@index
+  GET|HEAD  tour/{slug} ........................................................ Modules\Tour\Controllers\TourController@detail
+  GET|HEAD  two-factor-challenge .......... two-factor.login › Laravel\Fortify › TwoFactorAuthenticatedSessionController@create
+  POST      two-factor-challenge .............................. Laravel\Fortify › TwoFactorAuthenticatedSessionController@store
+  GET|HEAD  update ......................... LaravelUpdater::welcome › RachidLaasri\LaravelInstaller › UpdateController@welcome
+  GET|HEAD  update/database .............. LaravelUpdater::database › RachidLaasri\LaravelInstaller › UpdateController@database
+  GET|HEAD  update/final ...................... LaravelUpdater::final › RachidLaasri\LaravelInstaller › UpdateController@finish
+  GET|HEAD  update/overview .............. LaravelUpdater::overview › RachidLaasri\LaravelInstaller › UpdateController@overview
+  GET|HEAD  user/2fa ............................................ user.2fa › Modules\User\Controllers\TwoFactorController@index
+  GET|HEAD  user/boat ............................ boat.vendor.index › Modules\Boat\Controllers\ManageBoatController@manageBoat
+  GET|HEAD  user/boat/availability ..... boat.vendor.availability.index › Modules\Boat\Controllers\AvailabilityController@index
+  GET|HEAD  user/boat/availability/availabilityBooking boat.vendor.availability.availabilityBooking › Modules\Boat\Controllers…
+  GET|HEAD  user/boat/availability/loadDates boat.vendor.availability.loadDates › Modules\Boat\Controllers\AvailabilityControl…
+  POST      user/boat/availability/store boat.vendor.availability.store › Modules\Boat\Controllers\AvailabilityController@store
+  GET|HEAD  user/boat/booking-report/bulkEdit/{id} boat.vendor.booking_report.bulk_edit › Modules\Boat\Controllers\ManageBoatC…
+  GET|HEAD  user/boat/bulkEdit/{id} ........ boat.vendor.bulk_edit › Modules\Boat\Controllers\ManageBoatController@bulkEditBoat
+  GET|HEAD  user/boat/create .................... boat.vendor.create › Modules\Boat\Controllers\ManageBoatController@createBoat
+  GET|HEAD  user/boat/del/{id} .................. boat.vendor.delete › Modules\Boat\Controllers\ManageBoatController@deleteBoat
+  GET|HEAD  user/boat/edit/{id} ..................... boat.vendor.edit › Modules\Boat\Controllers\ManageBoatController@editBoat
+  GET|HEAD  user/boat/recovery .................. boat.vendor.recovery › Modules\Boat\Controllers\ManageBoatController@recovery
+  GET|HEAD  user/boat/restore/{id} ................ boat.vendor.restore › Modules\Boat\Controllers\ManageBoatController@restore
+  POST      user/boat/store/{id} ...................... boat.vendor.store › Modules\Boat\Controllers\ManageBoatController@store
+  GET|HEAD  user/booking-history ................ user.booking_history › Modules\User\Controllers\UserController@bookingHistory
+  GET|HEAD  user/booking/{code}/invoice ...... user.booking.invoice › Modules\User\Controllers\BookingController@bookingInvoice
+  GET|HEAD  user/booking/{code}/ticket ................ user.booking.ticket › Modules\User\Controllers\BookingController@ticket
+  GET|HEAD  user/car ................................. car.vendor.index › Modules\Car\Controllers\ManageCarController@manageCar
+  GET|HEAD  user/car/availability ........ car.vendor.availability.index › Modules\Car\Controllers\AvailabilityController@index
+  GET|HEAD  user/car/availability/loadDates car.vendor.availability.loadDates › Modules\Car\Controllers\AvailabilityController…
+  POST      user/car/availability/store .. car.vendor.availability.store › Modules\Car\Controllers\AvailabilityController@store
+  GET|HEAD  user/car/booking-report/bulkEdit/{id} car.vendor.booking_report.bulk_edit › Modules\Car\Controllers\ManageCarContr…
+  GET|HEAD  user/car/bulkEdit/{id} ............. car.vendor.bulk_edit › Modules\Car\Controllers\ManageCarController@bulkEditCar
+  GET|HEAD  user/car/create ......................... car.vendor.create › Modules\Car\Controllers\ManageCarController@createCar
+  GET|HEAD  user/car/del/{id} ....................... car.vendor.delete › Modules\Car\Controllers\ManageCarController@deleteCar
+  GET|HEAD  user/car/edit/{id} .......................... car.vendor.edit › Modules\Car\Controllers\ManageCarController@editCar
+  GET|HEAD  user/car/recovery ...................... car.vendor.recovery › Modules\Car\Controllers\ManageCarController@recovery
+  GET|HEAD  user/car/restore/{id} .................... car.vendor.restore › Modules\Car\Controllers\ManageCarController@restore
+  POST      user/car/store/{id} .......................... car.vendor.store › Modules\Car\Controllers\ManageCarController@store
+  GET|HEAD  user/chat ............................................... user.chat › Modules\User\Controllers\ChatController@index
+  GET|HEAD  user/confirm-password ........................................ Laravel\Fortify › ConfirmablePasswordController@show
+  POST      user/confirm-password .................... password.confirm › Laravel\Fortify › ConfirmablePasswordController@store
+  GET|HEAD  user/confirmed-password-status ... password.confirmation › Laravel\Fortify › ConfirmedPasswordStatusController@show
+  POST      user/confirmed-two-factor-authentication two-factor.confirm › Laravel\Fortify › ConfirmedTwoFactorAuthenticationCo…
+  GET|HEAD  user/dashboard ............................... vendor.dashboard › Modules\User\Controllers\UserController@dashboard
+  GET|HEAD  user/event ........................ event.vendor.index › Modules\Event\Controllers\VendorEventController@indexEvent
+  GET|HEAD  user/event/availability .. event.vendor.availability.index › Modules\Event\Controllers\AvailabilityController@index
+  GET|HEAD  user/event/availability/loadDates event.vendor.availability.loadDates › Modules\Event\Controllers\AvailabilityCont…
+  POST      user/event/availability/store event.vendor.availability.store › Modules\Event\Controllers\AvailabilityController@s…
+  GET|HEAD  user/event/booking-report/bulkEdit/{id} event.vendor.booking_report.bulk_edit › Modules\Event\Controllers\VendorEv…
+  GET|HEAD  user/event/bulkEdit/{id} ... event.vendor.bulk_edit › Modules\Event\Controllers\VendorEventController@bulkEditEvent
+  GET|HEAD  user/event/create ............... event.vendor.create › Modules\Event\Controllers\VendorEventController@createEvent
+  GET|HEAD  user/event/del/{id} ............. event.vendor.delete › Modules\Event\Controllers\VendorEventController@deleteEvent
+  GET|HEAD  user/event/edit/{id} ................ event.vendor.edit › Modules\Event\Controllers\VendorEventController@editEvent
+  GET|HEAD  user/event/recovery .............. event.vendor.recovery › Modules\Event\Controllers\VendorEventController@recovery
+  GET|HEAD  user/event/restore/{id} ............ event.vendor.restore › Modules\Event\Controllers\VendorEventController@restore
+  POST      user/event/store/{id} .................. event.vendor.store › Modules\Event\Controllers\VendorEventController@store
+  GET|HEAD  user/flight .................. flight.vendor.index › Modules\Flight\Controllers\ManageFlightController@manageFlight
+  GET|HEAD  user/flight/booking-report/bulkEdit/{id} flight.vendor.booking_report.bulk_edit › Modules\Flight\Controllers\Manag…
+  GET|HEAD  user/flight/bulkEdit/{id} flight.vendor.bulk_edit › Modules\Flight\Controllers\ManageFlightController@bulkEditFlig…
+  GET|HEAD  user/flight/clone/{id} ........ flight.vendor.clone › Modules\Flight\Controllers\ManageFlightController@cloneFlight
+  GET|HEAD  user/flight/create .......... flight.vendor.create › Modules\Flight\Controllers\ManageFlightController@createFlight
+  GET|HEAD  user/flight/del/{id} ........ flight.vendor.delete › Modules\Flight\Controllers\ManageFlightController@deleteFlight
+  GET|HEAD  user/flight/edit/{id} ........... flight.vendor.edit › Modules\Flight\Controllers\ManageFlightController@editFlight
+  GET|HEAD  user/flight/recovery .......... flight.vendor.recovery › Modules\Flight\Controllers\ManageFlightController@recovery
+  GET|HEAD  user/flight/restore/{id} ........ flight.vendor.restore › Modules\Flight\Controllers\ManageFlightController@restore
+  POST      user/flight/store/{id} .............. flight.vendor.store › Modules\Flight\Controllers\ManageFlightController@store
+  GET|HEAD  user/flight/{flight_id}/flight-seat flight.vendor.seat.index › Modules\Flight\Controllers\ManageFlightSeatControll…
+  POST      user/flight/{flight_id}/flight-seat/bulkEdit flight.vendor.seat.bulkEdit › Modules\Flight\Controllers\ManageFlight…
+  GET|HEAD  user/flight/{flight_id}/flight-seat/create flight.vendor.seat.create › Modules\Flight\Controllers\ManageFlightSeat…
+  POST      user/flight/{flight_id}/flight-seat/delete/{id} flight.vendor.seat.delete › Modules\Flight\Controllers\ManageFligh…
+  GET|HEAD  user/flight/{flight_id}/flight-seat/edit/{id} flight.vendor.seat.edit › Modules\Flight\Controllers\ManageFlightSea…
+  POST      user/flight/{flight_id}/flight-seat/store/{id} flight.vendor.seat.store › Modules\Flight\Controllers\ManageFlightS…
+  GET|HEAD  user/hotel .................................. hotel.vendor.index › Modules\Hotel\Controllers\VendorController@index
+  GET|HEAD  user/hotel/availability .. hotel.vendor.availability.index › Modules\Hotel\Controllers\AvailabilityController@index
+  GET|HEAD  user/hotel/availability/loadDates hotel.vendor.availability.loadDates › Modules\Hotel\Controllers\AvailabilityCont…
+  POST      user/hotel/availability/store hotel.vendor.availability.store › Modules\Hotel\Controllers\AvailabilityController@s…
+  GET|HEAD  user/hotel/booking-report/bulkEdit/{id} hotel.vendor.booking_report.bulk_edit › Modules\Hotel\Controllers\VendorCo…
+  GET|HEAD  user/hotel/bulkEdit/{id} ........ hotel.vendor.bulk_edit › Modules\Hotel\Controllers\VendorController@bulkEdithotel
+  GET|HEAD  user/hotel/create ......................... hotel.vendor.create › Modules\Hotel\Controllers\VendorController@create
+  GET|HEAD  user/hotel/del/{id} ....................... hotel.vendor.delete › Modules\Hotel\Controllers\VendorController@delete
+  GET|HEAD  user/hotel/edit/{id} .......................... hotel.vendor.edit › Modules\Hotel\Controllers\VendorController@edit
+  GET|HEAD  user/hotel/recovery ................... hotel.vendor.recovery › Modules\Hotel\Controllers\VendorController@recovery
+  GET|HEAD  user/hotel/restore/{id} ................. hotel.vendor.restore › Modules\Hotel\Controllers\VendorController@restore
+  GET|HEAD  user/hotel/room/{hotel_id}/bulkEdit/{id} hotel.vendor.room.bulk_edit › Modules\Hotel\Controllers\VendorRoomControl…
+  GET|HEAD  user/hotel/room/{hotel_id}/create hotel.vendor.room.create › Modules\Hotel\Controllers\VendorRoomController@create
+  GET|HEAD  user/hotel/room/{hotel_id}/del/{id} hotel.vendor.room.delete › Modules\Hotel\Controllers\VendorRoomController@dele…
+  GET|HEAD  user/hotel/room/{hotel_id}/edit/{id} . hotel.vendor.room.edit › Modules\Hotel\Controllers\VendorRoomController@edit
+  GET|HEAD  user/hotel/room/{hotel_id}/index ... hotel.vendor.room.index › Modules\Hotel\Controllers\VendorRoomController@index
+  POST      user/hotel/room/{hotel_id}/store/{id} hotel.vendor.room.store › Modules\Hotel\Controllers\VendorRoomController@sto…
+  POST      user/hotel/store/{id} ....................... hotel.vendor.store › Modules\Hotel\Controllers\VendorController@store
+  GET|HEAD  user/hotel/{hotel_id}/availability hotel.vendor.room.availability.index › Modules\Hotel\Controllers\AvailabilityCo…
+  GET|HEAD  user/hotel/{hotel_id}/availability/loadDates hotel.vendor.room.availability.loadDates › Modules\Hotel\Controllers\…
+  POST      user/hotel/{hotel_id}/availability/store hotel.vendor.room.availability.store › Modules\Hotel\Controllers\Availabi…
+  GET|HEAD  user/my-plan ........................................... user.plan › Modules\User\Controllers\PlanController@myPlan
+  PUT       user/password .................................. user-password.update › Laravel\Fortify › PasswordController@update
+  GET|HEAD  user/permanently_delete ....... user.permanently.delete › Modules\User\Controllers\UserController@permanentlyDelete
+  GET|HEAD  user/plan/buy/{id} .................................... user.plan.buy › Modules\User\Controllers\PlanController@buy
+  POST      user/plan/buyProcess/{id} ............... user.plan.buyProcess › Modules\User\Controllers\PlanController@buyProcess
+  GET|HEAD  user/profile ................................. user.profile.index › Modules\User\Controllers\UserController@profile
+  POST      user/profile .......................... user.profile.update › Modules\User\Controllers\UserController@profileUpdate
+  PUT       user/profile-information .. user-profile-information.update › Laravel\Fortify › ProfileInformationController@update
+  GET|HEAD  user/profile/change-password .... user.change_password › Modules\User\Controllers\PasswordController@changePassword
+  POST      user/profile/change-password user.change_password.update › Modules\User\Controllers\PasswordController@changePassw…
+  POST      user/reloadChart .............................................. Modules\User\Controllers\UserController@reloadChart
+  GET|HEAD  user/space ....................... space.vendor.index › Modules\Space\Controllers\ManageSpaceController@manageSpace
+  GET|HEAD  user/space/availability .. space.vendor.availability.index › Modules\Space\Controllers\AvailabilityController@index
+  GET|HEAD  user/space/availability/loadDates space.vendor.availability.loadDates › Modules\Space\Controllers\AvailabilityCont…
+  POST      user/space/availability/store space.vendor.availability.store › Modules\Space\Controllers\AvailabilityController@s…
+  GET|HEAD  user/space/booking-report/bulkEdit/{id} space.vendor.booking_report.bulk_edit › Modules\Space\Controllers\ManageSp…
+  GET|HEAD  user/space/bulkEdit/{id} ... space.vendor.bulk_edit › Modules\Space\Controllers\ManageSpaceController@bulkEditSpace
+  GET|HEAD  user/space/clone/{id} ............. space.vendor.clone › Modules\Space\Controllers\ManageSpaceController@cloneSpace
+  GET|HEAD  user/space/create ............... space.vendor.create › Modules\Space\Controllers\ManageSpaceController@createSpace
+  GET|HEAD  user/space/del/{id} ............. space.vendor.delete › Modules\Space\Controllers\ManageSpaceController@deleteSpace
+  GET|HEAD  user/space/edit/{id} ................ space.vendor.edit › Modules\Space\Controllers\ManageSpaceController@editSpace
+  GET|HEAD  user/space/recovery .............. space.vendor.recovery › Modules\Space\Controllers\ManageSpaceController@recovery
+  GET|HEAD  user/space/restore/{id} ............ space.vendor.restore › Modules\Space\Controllers\ManageSpaceController@restore
+  POST      user/space/store/{id} .................. space.vendor.store › Modules\Space\Controllers\ManageSpaceController@store
+  GET|HEAD  user/tour ............................ tour.vendor.index › Modules\Tour\Controllers\ManageTourController@manageTour
+  GET|HEAD  user/tour/availability ..... tour.vendor.availability.index › Modules\Tour\Controllers\AvailabilityController@index
+  GET|HEAD  user/tour/availability/loadDates tour.vendor.availability.loadDates › Modules\Tour\Controllers\AvailabilityControl…
+  POST      user/tour/availability/store tour.vendor.availability.store › Modules\Tour\Controllers\AvailabilityController@store
+  GET|HEAD  user/tour/booking-report/bulkEdit/{id} tour.vendor.booking_report.bulk_edit › Modules\Tour\Controllers\ManageTourC…
+  GET|HEAD  user/tour/bulkEdit/{id} ........ tour.vendor.bulk_edit › Modules\Tour\Controllers\ManageTourController@bulkEditTour
+  GET|HEAD  user/tour/clone/{id} .................. tour.vendor.clone › Modules\Tour\Controllers\ManageTourController@cloneTour
+  GET|HEAD  user/tour/create .................... tour.vendor.create › Modules\Tour\Controllers\ManageTourController@createTour
+  GET|HEAD  user/tour/del/{id} .................. tour.vendor.delete › Modules\Tour\Controllers\ManageTourController@deleteTour
+  GET|HEAD  user/tour/edit/{id} ..................... tour.vendor.edit › Modules\Tour\Controllers\ManageTourController@editTour
+  GET|HEAD  user/tour/recovery .................. tour.vendor.recovery › Modules\Tour\Controllers\ManageTourController@recovery
+  GET|HEAD  user/tour/restore/{id} ................ tour.vendor.restore › Modules\Tour\Controllers\ManageTourController@restore
+  POST      user/tour/store/{id} ...................... tour.vendor.store › Modules\Tour\Controllers\ManageTourController@store
+  POST      user/two-factor-authentication ...... two-factor.enable › Laravel\Fortify › TwoFactorAuthenticationController@store
+  DELETE    user/two-factor-authentication ... two-factor.disable › Laravel\Fortify › TwoFactorAuthenticationController@destroy
+  GET|HEAD  user/two-factor-qr-code ..................... two-factor.qr-code › Laravel\Fortify › TwoFactorQrCodeController@show
+  GET|HEAD  user/two-factor-recovery-codes ......... two-factor.recovery-codes › Laravel\Fortify › RecoveryCodeController@index
+  POST      user/two-factor-recovery-codes ..................................... Laravel\Fortify › RecoveryCodeController@store
+  GET|HEAD  user/two-factor-secret-key ............ two-factor.secret-key › Laravel\Fortify › TwoFactorSecretKeyController@show
+  GET|HEAD  user/upgrade-vendor ................... user.upgrade_vendor › Modules\User\Controllers\UserController@upgradeVendor
+  GET|HEAD  user/verification ................. user.verification.index › Modules\User\Controllers\VerificationController@index
+  POST      user/verification/send-code-verify-phone user.verification.phone.sendCode › Modules\User\Controllers\VerificationC…
+  POST      user/verification/store ........... user.verification.store › Modules\User\Controllers\VerificationController@store
+  GET|HEAD  user/verification/update ........ user.verification.update › Modules\User\Controllers\VerificationController@update
+  POST      user/verification/verify-phone user.verification.phone.field › Modules\User\Controllers\VerificationController@ver…
+  GET|HEAD  user/wallet ........................................ user.wallet › Modules\User\Controllers\WalletController@wallet
+  GET|HEAD  user/wallet/buy ................................... user.wallet.buy › Modules\User\Controllers\WalletController@buy
+  POST      user/wallet/buyProcess .............. user.wallet.buyProcess › Modules\User\Controllers\WalletController@buyProcess
+  POST      user/wishlist ............... user.wishList.handle › Modules\User\Controllers\UserWishListController@handleWishList
+  GET|HEAD  user/wishlist ......................... user.wishList.index › Modules\User\Controllers\UserWishListController@index
+  GET|HEAD  user/wishlist/remove ................ user.wishList.remove › Modules\User\Controllers\UserWishListController@remove
+  GET|HEAD  vendor/booking-report ............ vendor.bookingReport › Modules\Vendor\Controllers\VendorController@bookingReport
+  POST      vendor/createPayoutRequest vendor.payout.createPayoutRequest › Modules\Vendor\Controllers\PayoutController@createP…
+  GET|HEAD  vendor/enquiry-report .......... vendor.enquiry_report › Modules\Vendor\Controllers\EnquiryController@enquiryReport
+  GET|HEAD  vendor/enquiry-report/bulkEdit/{id} vendor.enquiry_report.bulk_edit › Modules\Vendor\Controllers\EnquiryController…
+  GET|HEAD  vendor/enquiry-report/{enquiry}/reply vendor.enquiry_report.reply › Modules\Vendor\Controllers\EnquiryController@r…
+  POST      vendor/enquiry-report/{enquiry}/reply/store vendor.enquiry_report.replyStore › Modules\Vendor\Controllers\EnquiryC…
+  GET|HEAD  vendor/news ............................... news.vendor.index › Modules\News\Controllers\VendorNewsController@index
+  POST      vendor/news/bulkEdit ................ news.vendor.bulkEdit › Modules\News\Controllers\VendorNewsController@bulkEdit
+  GET|HEAD  vendor/news/create ...................... news.vendor.create › Modules\News\Controllers\VendorNewsController@create
+  GET|HEAD  vendor/news/edit/{id} ....................... news.vendor.edit › Modules\News\Controllers\VendorNewsController@edit
+  POST      vendor/news/store/{id} .................... news.vendor.store › Modules\News\Controllers\VendorNewsController@store
+  GET|HEAD  vendor/payouts ............................ vendor.payout.index › Modules\Vendor\Controllers\PayoutController@index
+  POST      vendor/register ............................ vendor.register › Modules\Vendor\Controllers\VendorController@register
+  POST      vendor/storePayoutAccounts vendor.payout.storePayoutAccounts › Modules\Vendor\Controllers\PayoutController@storePa…
+  GET|HEAD  vendor/team ................................... vendor.team.index › Modules\Vendor\Controllers\TeamController@index
+  POST      vendor/team/add ................................... vendor.team.add › Modules\Vendor\Controllers\TeamController@add
+  GET|HEAD  vendor/team/delete/{vendorTeam} ............. vendor.team.delete › Modules\Vendor\Controllers\TeamController@delete
+  GET|HEAD  vendor/team/edit/{vendorTeam} ................... vendor.team.edit › Modules\Vendor\Controllers\TeamController@edit
+  GET|HEAD  vendor/team/reSendRequest/{vendorTeam} vendor.team.re-send-request › Modules\Vendor\Controllers\TeamController@reS…
+  POST      vendor/team/store/{vendorTeam} ................ vendor.team.store › Modules\Vendor\Controllers\TeamController@store
+
+                                                                                                           Showing [691] routes
+
